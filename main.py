@@ -1,6 +1,5 @@
 import pygame
 from function.display import *
-from function.events import *
 
 display = pygame.display.set_mode((900, 900))
 
@@ -20,6 +19,6 @@ while run:
         load_screen(display)
         pygame.display.flip()
     else:
-        display.fill((0, 0, 0))
+        paint_grid(display)
         pygame.display.flip()
 pygame.quit()
