@@ -28,4 +28,10 @@ def circle(display, cords):
         pygame.display.flip()
     elif cords[0] == 2 and cords[1] == 2:
         pygame.draw.circle(display, (0, 0, 0), (750, 750), 100, 2)
+
+
+def cross(display, cords):
+    if cords[0] == 0 and cords[1] == 0:
+        pygame.draw.line(display, (0, 0, 0), (100, 100), (200,200), 2)
+        pygame.draw.line(display, (0, 0, 0), (200, 100), (100, 200), 2)
         pygame.display.flip()

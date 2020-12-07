@@ -32,7 +32,7 @@ while run:
                 pos = pygame.mouse.get_pos()
                 if started == 2:
                     if player(player_count) == "cross":
-                        circle(display, calcul_pos(pos[0], pos[1]))
+                        cross(display, calcul_pos(pos[0], pos[1]))
                     else:
                         circle(display, calcul_pos(pos[0], pos[1]))
 
