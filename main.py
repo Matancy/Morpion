@@ -3,10 +3,12 @@ from function.display import *
 from function.drawing import *
 from function.calculs import *
 
+# Mise en place du plateau de jeu
 display = pygame.display.set_mode((900, 900))
 
 # Variables
 started = 0
+player_count = 0
 #
 
 run = True
@@ -28,14 +30,19 @@ while run:
             # Clic gauche
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 pos = pygame.mouse.get_pos()
-                if started == 1:
-                    print(calcul_pos(pos[0], pos[1]))
+                if started == 2:
+                    if player(player_count) == "cross":
+                        circle(display, calcul_pos(pos[0], pos[1]))
+                    else:
+                        circle(display, calcul_pos(pos[0], pos[1]))
 
 
     if started == 0:
         load_screen(display)
         pygame.display.flip()
-    else:
+    elif started == 1:
         paint_grid(display)
         pygame.display.flip()
+        started += 1
+
 pygame.quit()
