@@ -19,3 +19,11 @@ def calcul_pos(x, y):
         return 1, 2
     elif x > 600 and x < 900 and y > 600 and y < 900:
         return 2, 2
+
+
+def player(player_count):
+    player_count += 1
+    if player_count % 2 == 0:
+        return "cross"
+    else:
+        return "circle"
