@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5033aaf0-1711-419e-b89e-23d619fc3238" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Morpion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Morpion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/function/calculs.py" beforeDir="false" afterPath="$PROJECT_DIR$/function/calculs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/function/display.py" beforeDir="false" afterPath="$PROJECT_DIR$/function/display.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/function/drawing.py" beforeDir="false" afterPath="$PROJECT_DIR$/function/drawing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
