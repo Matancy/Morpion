@@ -31,6 +31,7 @@ while run:
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 pos = pygame.mouse.get_pos()
                 if started == 2:
+                    player_count += 1
                     if player(player_count) == "cross":
                         cross(display, calcul_pos(pos[0], pos[1]))
                     else:

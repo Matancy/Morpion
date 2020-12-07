@@ -22,7 +22,6 @@ def calcul_pos(x, y):
 
 
 def player(player_count):
-    player_count += 1
     if player_count % 2 == 0:
         return "cross"
     else:
