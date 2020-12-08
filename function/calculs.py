@@ -28,3 +28,18 @@ def player(player_count):
         return "cross"
     else:
         return "circle"
+
+
+def is_winner(game_data):
+    for i in range(0, len(game_data), 3):
+        if game_data[i] != 0 and game_data[i+1] != 0 and game_data[i+2] != 0:
+            if game_data[i] == game_data[i + 1] == game_data[i + 2]:
+                return True
+    if game_data[0] != 0 and game_data[4] != 0 and game_data[8] != 0:
+        if game_data[0] == game_data[4] == game_data[8]:
+            return True
+    elif game_data[2] != 0 and game_data[4] != 0 and game_data[6] != 0:
+        if game_data[2] == game_data[4] == game_data[6]:
+            return True
+    else:
+        return False

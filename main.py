@@ -11,6 +11,7 @@ display = pygame.display.set_mode((900, 900))
 started = 0
 player_count = 0
 game_data = [0,0,0,0,0,0,0,0,0]
+game_finished = 0
 #
 
 run = True
@@ -33,19 +34,26 @@ while run:
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 pos = pygame.mouse.get_pos()
                 if started == 2:
-                    player_count += 1
-                    if player(player_count) == "cross":
-                        position = calcul_pos(pos[0], pos[1])
-                        if save_cords(game_data, position, 1):
-                            cross(display, position)
+                    if game_finished == 0:
+                        player_count += 1
+                        if player(player_count) == "cross":
+                            position = calcul_pos(pos[0], pos[1])
+                            if save_cords(game_data, position, 1):
+                                cross(display, position)
+                                if is_winner(game_data):
+                                    print("Gagnant : Croix")
+                                    game_finished = 1
+                            else:
+                                player_count -= 1
                         else:
-                            player_count -= 1
-                    else:
-                        position = calcul_pos(pos[0], pos[1])
-                        if save_cords(game_data, position, 2):
-                            circle(display, position)
-                        else:
-                            player_count -= 1
+                            position = calcul_pos(pos[0], pos[1])
+                            if save_cords(game_data, position, 2):
+                                circle(display, position)
+                                if is_winner(game_data):
+                                    print("Gagnant : Cercle")
+                                    game_finished = 1
+                            else:
+                                player_count -= 1
 
 
     if started == 0:
