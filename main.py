@@ -9,6 +9,7 @@ display = pygame.display.set_mode((900, 900))
 # Variables
 started = 0
 player_count = 0
+game_data = [0,0,0,0,0,0,0,0,0]
 #
 
 run = True

@@ -19,6 +19,8 @@ def calcul_pos(x, y):
         return 1, 2
     elif x > 600 and x < 900 and y > 600 and y < 900:
         return 2, 2
+    else:
+        return 0, 0
 
 
 def player(player_count):
