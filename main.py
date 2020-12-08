@@ -2,6 +2,7 @@ import pygame
 from function.display import *
 from function.drawing import *
 from function.calculs import *
+from function.save import *
 
 # Mise en place du plateau de jeu
 display = pygame.display.set_mode((900, 900))
@@ -34,9 +35,17 @@ while run:
                 if started == 2:
                     player_count += 1
                     if player(player_count) == "cross":
-                        cross(display, calcul_pos(pos[0], pos[1]))
+                        position = calcul_pos(pos[0], pos[1])
+                        if save_cords(game_data, position, 1):
+                            cross(display, position)
+                        else:
+                            player_count -= 1
                     else:
-                        circle(display, calcul_pos(pos[0], pos[1]))
+                        position = calcul_pos(pos[0], pos[1])
+                        if save_cords(game_data, position, 2):
+                            circle(display, position)
+                        else:
+                            player_count -= 1
 
 
     if started == 0:
