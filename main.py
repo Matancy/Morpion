@@ -12,7 +12,6 @@ started = 0
 player_count = 0
 game_data = [0,0,0,0,0,0,0,0,0]
 game_finished = 0
-count = 0
 #
 
 run = True
@@ -27,7 +26,16 @@ while run:
         if event.type == pygame.KEYDOWN:
             # Touche entrée
             if event.key == pygame.K_RETURN:
-                started = 1
+                if started == 2:
+                    if game_finished == 1:
+                        # Réinitialisation du jeu
+                        paint_grid(display)
+                        pygame.display.flip()
+                        game_data = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                        player_count = 0
+                        game_finished = 0
+                else:
+                    started = 1
 
         # Lecture des entrées souris
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -39,26 +47,30 @@ while run:
                     # Si la partie n'est pas finie
                     if game_finished == 0:
                         player_count += 1
-                        if player_count == 9:
-                            print("Perdu !")
                         if player(player_count) == "cross":
                             position = calcul_pos(pos[0], pos[1])
                             if save_cords(game_data, position, 1):
                                 cross(display, position)
                                 if is_winner(game_data):
                                     print("Gagnant : Croix")
+                                    print("Press ENTER to restart")
                                     game_finished = 1
                             else:
                                 player_count -= 1
-                        else:
+                        elif player(player_count) == "circle":
                             position = calcul_pos(pos[0], pos[1])
                             if save_cords(game_data, position, 2):
                                 circle(display, position)
                                 if is_winner(game_data):
                                     print("Gagnant : Cercle")
+                                    print("Press ENTER to restart")
                                     game_finished = 1
                             else:
                                 player_count -= 1
+                        if player_count == 9 and game_finished != 1:
+                            print("Perdu !")
+                            print("Press ENTER to restart")
+                            game_finished = 1
 
 
     if started == 0:
