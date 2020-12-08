@@ -35,6 +35,10 @@ def is_winner(game_data):
         if game_data[i] != 0 and game_data[i+1] != 0 and game_data[i+2] != 0:
             if game_data[i] == game_data[i + 1] == game_data[i + 2]:
                 return True
+    for i in range(0, 3):
+        if game_data[i] != 0 and game_data[i+3] != 0 and game_data[i+6]:
+            if game_data[i] == game_data[i+3] == game_data[i+6]:
+                return True
     if game_data[0] != 0 and game_data[4] != 0 and game_data[8] != 0:
         if game_data[0] == game_data[4] == game_data[8]:
             return True

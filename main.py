@@ -12,6 +12,7 @@ started = 0
 player_count = 0
 game_data = [0,0,0,0,0,0,0,0,0]
 game_finished = 0
+count = 0
 #
 
 run = True
@@ -33,9 +34,13 @@ while run:
             # Clic gauche
             if pygame.mouse.get_pressed() == (1, 0, 0):
                 pos = pygame.mouse.get_pos()
+                # Si le jeu est démarré
                 if started == 2:
+                    # Si la partie n'est pas finie
                     if game_finished == 0:
                         player_count += 1
+                        if player_count == 9:
+                            print("Perdu !")
                         if player(player_count) == "cross":
                             position = calcul_pos(pos[0], pos[1])
                             if save_cords(game_data, position, 1):
