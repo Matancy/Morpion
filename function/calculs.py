@@ -5,14 +5,12 @@ def calcul_pos(x, y):
         return 1, 0
     elif x > 600 and x < 900 and y < 300:
         return 2, 0
-    ###
     elif x < 300 and y > 300 and y < 600:
         return 0, 1
     elif x > 300 and x < 600 and y > 300 and y < 600:
         return 1, 1
     elif x > 600 and x < 900 and y > 300 and y < 600:
         return 2, 1
-    ###
     elif x < 300 and y > 600 and y < 900:
         return 0, 2
     elif x > 300 and x < 600 and y > 600 and y < 900:
@@ -21,15 +19,11 @@ def calcul_pos(x, y):
         return 2, 2
     else:
         return 0, 0
-
-
 def player(player_count):
     if player_count % 2 == 0:
         return "cross"
     else:
         return "circle"
-
-
 def is_winner(game_data):
     for i in range(0, len(game_data), 3):
         if game_data[i] != 0 and game_data[i+1] != 0 and game_data[i+2] != 0:
