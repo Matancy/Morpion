@@ -46,7 +46,6 @@ while run:
                         else:
                             player_count -= 1
                     elif player(player_count) == "circle":
-                        position = calcul_pos(pos[0], pos[1])
                         if save_cords(game_data, position, 2):
                             circle(display, position)
                             if is_winner(game_data):

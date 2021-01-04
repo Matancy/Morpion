@@ -1,24 +1,24 @@
-def calcul_pos(x, y):
-    if x < 300 and y < 300:
-        return 0, 0
-    elif x > 300 and x < 600 and y < 300:
-        return 1, 0
-    elif x > 600 and x < 900 and y < 300:
-        return 2, 0
-    elif x < 300 and y > 300 and y < 600:
-        return 0, 1
-    elif x > 300 and x < 600 and y > 300 and y < 600:
-        return 1, 1
-    elif x > 600 and x < 900 and y > 300 and y < 600:
-        return 2, 1
-    elif x < 300 and y > 600 and y < 900:
-        return 0, 2
-    elif x > 300 and x < 600 and y > 600 and y < 900:
-        return 1, 2
-    elif x > 600 and x < 900 and y > 600 and y < 900:
-        return 2, 2
-    else:
-        return 0, 0
+import pygame
+def circle(x, y, display):
+    if x < 100 and y < 100:
+        pygame.draw.circle(display, (0, 0, 0), (50, 50), 75, 2)
+    elif x > 100 and x < 200 and y < 100:
+        pygame.draw.circle(display, (0, 0, 0), (450, 150), 75, 2)
+    elif x > 200 and x < 300 and y < 100:
+        pygame.draw.circle(display, (0, 0, 0), (750, 150), 75, 2)
+    elif x < 100 and y > 100 and y < 200:
+        pygame.draw.circle(display, (0, 0, 0), (150, 450), 75, 2)
+    elif x > 100 and x < 200 and y > 100 and y < 200:
+        pygame.draw.circle(display, (0, 0, 0), (450, 450), 75, 2)
+    elif x > 200 and x < 300 and y > 100 and y < 200:
+        pygame.draw.circle(display, (0, 0, 0), (750, 450), 75, 2)
+    elif x < 100 and y > 200 and y < 300:
+        pygame.draw.circle(display, (0, 0, 0), (150, 750), 75, 2)
+    elif x > 100 and x < 200 and y > 200 and y < 300:
+        pygame.draw.circle(display, (0, 0, 0), (450, 750), 75, 2)
+    elif x > 200 and x < 300 and y > 200 and y < 300:
+        pygame.draw.circle(display, (0, 0, 0), (750, 750), 75, 2)
+    pygame.display.flip()
 def player(player_count):
     if player_count % 2 == 0:
         return "cross"

@@ -1,24 +1,4 @@
 import pygame
-def circle(display, cords):
-    if cords[0] == 0 and cords[1] == 0:
-        pygame.draw.circle(display, (0, 0, 0), (150, 150), 75, 2)
-    elif cords[0] == 1 and cords[1] == 0:
-        pygame.draw.circle(display, (0, 0, 0), (450, 150), 75, 2)
-    elif cords[0] == 2 and cords[1] == 0:
-        pygame.draw.circle(display, (0, 0, 0), (750, 150), 75, 2)
-    elif cords[0] == 0 and cords[1] == 1:
-        pygame.draw.circle(display, (0, 0, 0), (150, 450), 75, 2)
-    elif cords[0] == 1 and cords[1] == 1:
-        pygame.draw.circle(display, (0, 0, 0), (450, 450), 75, 2)
-    elif cords[0] == 2 and cords[1] == 1:
-        pygame.draw.circle(display, (0, 0, 0), (750, 450), 75, 2)
-    elif cords[0] == 0 and cords[1] == 2:
-        pygame.draw.circle(display, (0, 0, 0), (150, 750), 75, 2)
-    elif cords[0] == 1 and cords[1] == 2:
-        pygame.draw.circle(display, (0, 0, 0), (450, 750), 75, 2)
-    elif cords[0] == 2 and cords[1] == 2:
-        pygame.draw.circle(display, (0, 0, 0), (750, 750), 75, 2)
-    pygame.display.flip()
 def cross(display, cords):
     if cords[0] == 0 and cords[1] == 0:
         pygame.draw.line(display, (0, 0, 0), (100, 100), (200, 200), 2)
