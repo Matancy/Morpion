@@ -1,60 +1,30 @@
 import pygame
-from function.drawing import *
-from function.calculs import *
-from function.save import *
-
 
 def init():
     display.fill((255, 255, 255))
-    pygame.draw.line(display, (0, 0, 0), (0, 100), (300, 100), 2)
-    pygame.draw.line(display, (0, 0, 0), (0, 200), (300, 200), 2)
-    pygame.draw.line(display, (0, 0, 0), (100, 0), (100, 300), 2)
-    pygame.draw.line(display, (0, 0, 0), (200, 0), (200, 300), 2)
-    pygame.display.flip()
+    pygame.draw.line(display, (0, 0, 0), (0, 100), (300, 100), 2), pygame.draw.line(display, (0, 0, 0), (0, 200), (300, 200), 2), pygame.draw.line(display, (0, 0, 0), (100, 0), (100, 300), 2), pygame.draw.line(display, (0, 0, 0), (200, 0), (200, 300), 2)
     global player_count, game_data, game_finished
     player_count, game_data, game_finished = 0, [0, 0, 0, 0, 0, 0, 0, 0, 0], 0
-
+def cercle(x, y):
+    pygame.draw.circle(display, (0, 0, 0), (x * 100 - 50, y * 100 - 50), 25, 2)
+def croix(x, y):
+    pygame.draw.circle(display, (0, 0, 0), (50, 50), 75, 2)
 display = pygame.display.set_mode((300, 300))
 init()
 
 run = True
 while run:
-    # Lecture des évènements de Pygame
     for event in pygame.event.get():
-        # Fermeture du programme
         if event.type == pygame.QUIT:
             run = False
-
-        # Touche entrée
         if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
             init()
-
-        # Lecture des entrées souris
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed() == (1, 0, 0) and game_finished == 0: #Gauche
             pos = pygame.mouse.get_pos()
-            if pygame.mouse.get_pressed() == (1, 0, 0):
-                # Si la partie n'est pas finie
-                if game_finished == 0:
-                    player_count += 1
-                    if player(player_count) == "cross":
-                        position = calcul_pos(pos[0], pos[1])
-                        if save_cords(game_data, position, 1):
-                            cross(display, position)
-                            if is_winner(game_data):
-                                print("Gagnant : Croix\n Press ENTER to restart")
-                                game_finished = 1
-                        else:
-                            player_count -= 1
-                    elif player(player_count) == "circle":
-                        if save_cords(game_data, position, 2):
-                            circle(display, position)
-                            if is_winner(game_data):
-                                print("Gagnant : Cercle\n Press ENTER to restart")
-                                game_finished = 1
-                            else:
-                                player_count -= 1
-                        if player_count == 9 and game_finished != 1:
-                            print("Perdu !\n Press ENTER to restart")
-                            game_finished = 1
+            x, y = int((pos[0] + 100) / 100), int((pos[1] + 100) / 100)
+            if player_count % 2 == 0:
+                cercle(x, y)
+            else:
+                cercle(x, y)
 
-pygame.quit()
+    pygame.display.flip()
