@@ -32,7 +32,7 @@ while run:
             run = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
             init()
-        if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed() == (1, 0, 0) and game_finished == 0: #Gauche
+        if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed() == (1, 0, 0) and game_finished == 0:
             pos = pygame.mouse.get_pos()
             x, y = int((pos[0] + 100) / 100), int((pos[1] + 100) / 100)
             if player_count % 2 == 0:
@@ -40,7 +40,7 @@ while run:
             else:
                 croix(x, y)
             player_count += 1
+            game_finished = 1 if player_count == 9 else 0
             if winner() != None:
-                game_finished = 1
-                print(winner())
+                game_finished = 1, print(winner())
     pygame.display.flip()
