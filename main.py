@@ -4,12 +4,16 @@ def init():
     display.fill((255, 255, 255))
     pygame.draw.line(display, (0, 0, 0), (0, 100), (300, 100), 2), pygame.draw.line(display, (0, 0, 0), (0, 200), (300, 200), 2), pygame.draw.line(display, (0, 0, 0), (100, 0), (100, 300), 2), pygame.draw.line(display, (0, 0, 0), (200, 0), (200, 300), 2)
     global player_count, game_data, game_finished
-    player_count, game_data, game_finished = 0, [0, 0, 0, 0, 0, 0, 0, 0, 0], 0
+    player_count, game_data, game_finished = 0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]], 0
+def save(x, y, player):
+    game_data[y-1][x-1] = player
 def cercle(x, y):
     pygame.draw.circle(display, (0, 0, 0), (x * 100 - 50, y * 100 - 50), 50, 2)
+    save(x, y, 1)
 def croix(x, y):
     pygame.draw.line(display, (0, 0, 0), (x * 100 - 100, y * 100 - 100), (x * 100, y * 100), 2)
     pygame.draw.line(display, (0, 0, 0), (x * 100, y * 100 - 100), (x * 100 - 100, y * 100), 2)
+    save(x, y, 2)
 display = pygame.display.set_mode((300, 300))
 init()
 
