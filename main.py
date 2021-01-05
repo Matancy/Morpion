@@ -7,6 +7,14 @@ def init():
     player_count, game_data, game_finished = 0, [[0, 0, 0], [0, 0, 0], [0, 0, 0]], 0
 def save(x, y, player):
     game_data[y-1][x-1] = player
+def winner():
+    for i in range(3):
+        if game_data[i][0] == game_data[i][1] == game_data[i][2] and game_data[i][0] != 0:
+            return "Cercle Gagnant" if game_data[i][0] == 1 else "Croix Gagnante"
+        if game_data[0][i] == game_data[1][i] == game_data[2][i] and game_data[0][i] != 0:
+            return "Cercle Gagnant" if game_data[0][i] == 1 else "Croix Gagnante"
+    if game_data[0][0] == game_data[1][1] == game_data[2][2] and game_data[1][1] != 0 or game_data[0][2] == game_data[1][1] == game_data[2][0] and game_data[1][1] != 0:
+        return "Cercle Gagnant" if game_data[1][1] == 1 else "Croix Gagnante"
 def cercle(x, y):
     pygame.draw.circle(display, (0, 0, 0), (x * 100 - 50, y * 100 - 50), 50, 2)
     save(x, y, 1)
@@ -32,5 +40,7 @@ while run:
             else:
                 croix(x, y)
             player_count += 1
-
+            if winner() != None:
+                game_finished = 1
+                print(winner())
     pygame.display.flip()
