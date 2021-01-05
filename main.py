@@ -6,9 +6,10 @@ def init():
     global player_count, game_data, game_finished
     player_count, game_data, game_finished = 0, [0, 0, 0, 0, 0, 0, 0, 0, 0], 0
 def cercle(x, y):
-    pygame.draw.circle(display, (0, 0, 0), (x * 100 - 50, y * 100 - 50), 25, 2)
+    pygame.draw.circle(display, (0, 0, 0), (x * 100 - 50, y * 100 - 50), 50, 2)
 def croix(x, y):
-    pygame.draw.circle(display, (0, 0, 0), (50, 50), 75, 2)
+    pygame.draw.line(display, (0, 0, 0), (x * 100 - 100, y * 100 - 100), (x * 100, y * 100), 2)
+    pygame.draw.line(display, (0, 0, 0), (x * 100, y * 100 - 100), (x * 100 - 100, y * 100), 2)
 display = pygame.display.set_mode((300, 300))
 init()
 
@@ -25,6 +26,7 @@ while run:
             if player_count % 2 == 0:
                 cercle(x, y)
             else:
-                cercle(x, y)
+                croix(x, y)
+            player_count += 1
 
     pygame.display.flip()
