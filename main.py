@@ -28,7 +28,7 @@ def save(x, y, player):
 def winner():
     """
     Fonction qui permet de regarder qui est le gagnant dans le plateau de jeu
-    :return:  Void
+    :return:  Bool 
     """
     for i in range(3):
         if game_data[i][0] == game_data[i][1] == game_data[i][2] and game_data[i][0] != 0:
