@@ -8,9 +8,10 @@ Une fois la partie terminée, il vous suffit d'appuyer sur la touche "Enter" pou
 
 ## Comment utiliser le jeu chez soi ?
 
-- Téléchargez la dernière release **[(1.0)](https://github.com/Matancy/Morpion/releases/tag/1.0)**
+- Téléchargez la dernière release **[(1.1)](https://github.com/Matancy/Morpion/releases/tag/1.1)**
 - Installez / utilisez **Python 3.8 ou 3.9** (seules versions testés)
 - Ouvrez le projet avec votre IDE
+- Vérifiez que Pygame est bien installé  
 - Exécutez le fichier main.py
 
 
